@@ -20,6 +20,8 @@ def main() -> None:
     with open(OUTPUT_FILE, "w", encoding="utf-8") as fh:
         fh.write(JOKE + "\n")
     print(f"Wrote joke ({len(JOKE)} chars) to {OUTPUT_FILE}")
+    # Echo the joke itself so the run log shows exactly what was submitted.
+    print(JOKE)
 
 
 if __name__ == "__main__":
