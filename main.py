@@ -12,6 +12,10 @@ JOKE = (
 
 
 def main() -> None:
+    # The competition caps the joke at 200 characters; fail loudly if a
+    # future edit ever pushes it past the limit instead of being cut off.
+    if len(JOKE) > 200:
+        raise ValueError(f"joke is {len(JOKE)} chars, over the 200 limit")
     os.makedirs(OUTPUT_DIR, exist_ok=True)
     with open(OUTPUT_FILE, "w", encoding="utf-8") as fh:
         fh.write(JOKE + "\n")
